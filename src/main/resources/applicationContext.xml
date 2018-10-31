@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:amq="http://activemq.apache.org/schema/core"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:jms="http://www.springframework.org/schema/jms"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms.xsd">
+
+    <amq:connectionFactory id="connectionFactory"/>
+
+    <amq:queue id="myQueue" physicalName="wct.alert.queue"/>
+    <amq:topic id="myTopic" physicalName="wct.alert.topic"/>
+
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate" c:_0-ref="connectionFactory" p:defaultDestination-ref="myQueue"/>
+
+    <bean id="alertService" class="com.wct.rpc.service.impl.AlertServiceImpl"/>
+
+    <bean id="alertHandler" class="com.wct.rpc.service.MyAlertHandler"/>
+
+    <jms:listener-container connection-factory="connectionFactory">
+        <jms:listener destination="wct.alert.queue" ref="alertHandler" method="handleAlert"/>
+    </jms:listener-container>
+</beans>
