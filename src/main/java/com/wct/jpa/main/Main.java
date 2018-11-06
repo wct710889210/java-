@@ -5,6 +5,7 @@ import com.wct.jpa.entity.User;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,8 +13,10 @@ public class Main {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
-        User user = em.find(User.class,2);
-        user.setAccount("hahahaha");
+        List<User> users = em.createQuery("FROM User").getResultList();
+        for(User user:users){
+            System.out.println("user:"+user.getAccount());
+        }
 
         em.getTransaction().commit();
         em.close();
