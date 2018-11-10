@@ -5,13 +5,17 @@
         http://xmlns.jcp.org/xml/ns/persistence_2_1.xsd">
     <persistence-unit name="wct" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>com.wct.jpa.entity.User</class>
+        <class>com.wct.jpa.entity.Phone</class>
+        <class>com.wct.jpa.entity.Address</class>
+        <class>com.wct.jpa.entity.Department</class>
+        <class>com.wct.jpa.entity.Employee</class>
+        <class>com.wct.jpa.entity.Project</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/wct"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/jpatest"/>
             <property name="hibernate.connection.username" value="root"/>
             <property name="hibernate.connection.password" value="wct123456"/>
         </properties>

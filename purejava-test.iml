@@ -6,7 +6,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="" />
         <datasource-mapping>
-          <factory-entry name="wct" value="f0d84db9-7563-4416-bb11-900062e468ea" />
+          <factory-entry name="wct" value="ff46735f-5e6d-4818-911d-c76da6b09bbf" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
       </configuration>

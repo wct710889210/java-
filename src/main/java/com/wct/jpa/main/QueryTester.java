@@ -25,20 +25,24 @@ public class QueryTester {
             if(query.length() == 0){
                 continue;
             }
-            List result = em.createQuery(query).getResultList();
-            if(result.size() > 0){
-                int count = 0;
-                for(Object o:result){
-                    System.out.print(++count+" ");
-                    printResult(o);
+            try {
+                List result = em.createQuery(query).getResultList();
+                if(result.size() > 0){
+                    int count = 0;
+                    for(Object o:result){
+                        System.out.print(++count+" ");
+                        printResult(o);
+                    }
+                }else {
+                    System.out.print("0 results returned");
                 }
-            }else {
-                System.out.print("0 results returned");
+            }catch (Exception e){
+                e.printStackTrace();
             }
         }
     }
 
-    private static void printResult(Object result){
+    private static void printResult(Object result) throws Exception{
         if(result == null){
             System.out.print("null");
         }else if(result instanceof Object[]){
