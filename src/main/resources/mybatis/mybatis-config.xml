@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--配置-->
+<configuration>
+    <!--属性-->
+    <properties resource="mybatis/application.properties">
+        <property name="jdbc.username" value="root"/>
+        <property name="jdbc.password" value="wct123456"/>
+    </properties>
+    <!--设置-->
+
+    <!--类型命名-->
+    <typeAliases>
+        <package name="com.wct.mybatis.entity"/>
+    </typeAliases>
+    <!--类型处理器-->
+
+    <!--对象工厂-->
+
+    <!--插件-->
+
+    <!--配置环境-->
+    <environments default="test">
+        <environment id="test">
+            <transactionManager type="jdbc"/>
+            <dataSource type="pooled">
+                <property name="driver" value="${jdbc.driverClassName}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--数据库厂商标识-->
+    <!--<databaseIdProvider type=""/>-->
+    <!--映射器-->
+    <mappers>
+        <package name="com.wct.mybatis.mappers"/>
+    </mappers>
+</configuration>

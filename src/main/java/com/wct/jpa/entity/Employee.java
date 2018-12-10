@@ -1,15 +1,22 @@
 package com.wct.jpa.entity;
 
+import com.wct.jpa.enumeration.EmployeeType;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "Employee.findAll", query = "select e from Employee e"),
+        @NamedQuery(name = "Employee.findById", query = "select e from Employee e where e.id = :id")
+})
 public class Employee {
     private int id;
     private String name;
     private int salary;
     private Department department;
+    private EmployeeType employeeType;
     private Collection<Phone> phones = new ArrayList<Phone>();
     private Collection projects;
     private Employee manager;
@@ -53,6 +60,16 @@ public class Employee {
 
     public void setDepartment(Department department) {
         this.department = department;
+    }
+
+    @Column(name = "type")
+    @Enumerated(EnumType.STRING)
+    public EmployeeType getEmployeeType() {
+        return employeeType;
+    }
+
+    public void setEmployeeType(EmployeeType employeeType) {
+        this.employeeType = employeeType;
     }
 
     @OneToMany(mappedBy = "employee",cascade = {CascadeType.PERSIST,CascadeType.REMOVE})

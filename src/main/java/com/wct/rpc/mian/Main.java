@@ -7,12 +7,11 @@ import org.springframework.jms.core.MessageCreator;
 
 import javax.jms.JMSException;
 import javax.jms.Message;
-import javax.jms.ObjectMessage;
 import javax.jms.Session;
 
 public class Main {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring/applicationContext.xml");
         JmsTemplate jmsTemplate = (JmsTemplate)context.getBean("jmsTemplate");
         jmsTemplate.send(new MessageCreator() {
             @Override
