@@ -1,5 +1,6 @@
 package com.wct.jpa.main;
 
+import com.wct.jpa.entity.Department;
 import com.wct.jpa.entity.Employee;
 import com.wct.jpa.enumeration.EmployeeType;
 
@@ -9,6 +10,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Tuple;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.List;
 
 public class Main {
@@ -22,6 +24,7 @@ public class Main {
     public static void main(String[] args) {
 //        testNamedQuery();
 //        testEnum();
+        testCriteria();
     }
 
 
@@ -65,6 +68,15 @@ public class Main {
      */
     private static void testCriteria(){
         EntityManager em = emf.createEntityManager();
+
         CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Department> cq = cb.createQuery(Department.class);
+        Root<Department> department = cq.from(Department.class);
+        Root<Employee> employee = cq.from(Employee.class);
+        cq.select(department).distinct(true).where(cb.equal(department,employee.get("department")));
+        List<Department> result = em.createQuery(cq).getResultList();
+
+        for (Department dept:result)
+            System.out.println(dept);
     }
 }
