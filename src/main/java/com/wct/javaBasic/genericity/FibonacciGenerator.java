@@ -1,4 +1,4 @@
-package com.wct.genericity;
+package com.wct.javaBasic.genericity;
 
 public class FibonacciGenerator implements Generator<Integer>{
     private int count = 0;

@@ -1,6 +1,4 @@
-package com.wct.concurrency;
-
-import java.util.concurrent.Executors;
+package com.wct.javaBasic.concurrency;
 
 public class Main {
     public static void main(String[] args) {

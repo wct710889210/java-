@@ -1,4 +1,4 @@
-package com.wct.classInfo;
+package com.wct.javaBasic.classInfo;
 
 interface HasBatteries{}
 interface Waterproof{}
@@ -23,7 +23,7 @@ public class ToyTest {
     public static void main(String[] args) {
         Class c = null;
         try {
-            c = Class.forName("com.wct.classInfo.FancyToy");
+            c = Class.forName("com.wct.javaBasic.classInfo.FancyToy");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }

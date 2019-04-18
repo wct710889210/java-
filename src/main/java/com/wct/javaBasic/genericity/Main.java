@@ -1,4 +1,4 @@
-package com.wct.genericity;
+package com.wct.javaBasic.genericity;
 
 public class Main {
     public static void main(String[] args) {

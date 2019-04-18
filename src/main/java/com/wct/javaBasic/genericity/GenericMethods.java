@@ -1,7 +1,6 @@
-package com.wct.genericity;
+package com.wct.javaBasic.genericity;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class GenericMethods {

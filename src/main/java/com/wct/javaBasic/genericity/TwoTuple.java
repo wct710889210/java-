@@ -1,4 +1,4 @@
-package com.wct.genericity;
+package com.wct.javaBasic.genericity;
 
 public class TwoTuple<A,B> {
     public final A first;
