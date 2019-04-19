@@ -2,6 +2,8 @@ package com.wct.algorithm.JianZhiOffer;
 
 /**
  * 矩阵中的路径
+ *
+ * 总结：应该将需要回溯的情况一起进行回溯，即当前结点不符合条件时和对后续结点的访问都不符合条件时
  */
 public class HasPath {
     public static boolean hasPath(char[] matrix, int rows, int cols, char[] str)
