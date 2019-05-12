@@ -9,14 +9,20 @@ public class BubbleSort {
      * @param nums
      */
     public static void sort(int[] nums){
-        int temp;
-        for (int i=nums.length-1;i>0;i--){
-            for (int j=0;j<i;j++){
+        boolean isSorted;
+        for(int i=nums.length-1; i>0; i--){
+            System.out.println("one");
+            isSorted = true;
+            for(int j=0; j<i; j++){
                 if(nums[j]>nums[j+1]){
-                    temp = nums[j];
+                    int temp = nums[j];
                     nums[j] = nums[j+1];
                     nums[j+1] = temp;
+                    isSorted = false;
                 }
+            }
+            if(isSorted){
+                return;
             }
         }
     }
