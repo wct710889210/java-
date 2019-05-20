@@ -14,7 +14,7 @@ public class InsertSort {
         for(int i=1;i<nums.length;i++){     //假定第一个元素位置正确，将后面的元素插入
             j=i;
             target = nums[i];   //记录要被插入的值
-            while (j>0&&nums[j-1]>target){   //找到正确的插入位置j
+            while (j>0&&nums[j-1]>target){   //找到正确的插入位置j,j-1时和待插入元素比较的元素的位置
                 nums[j] = nums[j-1];
                 j--;
             }
