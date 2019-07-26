@@ -10,6 +10,9 @@
         <property name="jdbc.password" value="wct123456"/>
     </properties>
     <!--设置-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING" />
+    </settings>
 
     <!--类型命名-->
     <typeAliases>
